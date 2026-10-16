@@ -121,6 +121,22 @@ int? secondLargest(List<int> numbers) {
   }
   return second;
 }
+
+My Solution
+
+int? secondLargest(List<int> numbers) {
+    if (numbers.isEmpty) return null;
+    var largestNum = numbers.first;
+    var secondLargestNum = numbers.first;
+    for (final num in numbers) {
+      if (num > largestNum) largestNum = num;
+    }
+    for (final num in numbers) {
+      if (num == largestNum) continue;
+      if (num > secondLargestNum) secondLargestNum = num;
+    }
+    return secondLargestNum;
+  }
 ```
 
 One pass, `O(n)` time, `O(1)` memory.
